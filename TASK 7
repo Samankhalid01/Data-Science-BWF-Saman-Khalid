@@ -1,0 +1,95 @@
+from datetime import datetime
+
+class Task:
+    def __init__(self, title, description, due_date, priority):
+        self.title = title
+        self.description = description
+        self.due_date = due_date
+        self.priority = priority
+        self.status = "Pending"
+
+    def mark_completed(self):
+        self.status = "Completed"
+
+    def __str__(self):
+        return f"Title: {self.title}\nDescription: {self.description}\nDue Date: {self.due_date}\nPriority: {self.priority}\nStatus: {self.status}\n"
+
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
+
+    def add_task(self, title, description, due_date, priority):
+        new_task = Task(title, description, due_date, priority)
+        self.tasks.append(new_task)
+
+    def view_tasks(self, filter_by=None):
+        if filter_by:
+            filtered_tasks = [task for task in self.tasks if getattr(task, filter_by[0]) == filter_by[1]]
+            for task in filtered_tasks:
+                print(task)
+        else:
+            for task in self.tasks:
+                print(task)
+
+    def mark_task_completed(self, title):
+        for task in self.tasks:
+            if task.title == title:
+                task.mark_completed()
+                print(f"Task '{title}' marked as completed.")
+                return
+        print(f"No task found with the title '{title}'.")
+
+    def delete_task(self, title):
+        for task in self.tasks:
+            if task.title == title:
+                self.tasks.remove(task)
+                print(f"Task '{title}' deleted.")
+                return
+        print(f"No task found with the title '{title}'.")
+
+
+def main():
+    task_manager = TaskManager()
+
+    while True:
+        print("\nTask Manager")
+        print("1. Add a Task")
+        print("2. View All Tasks")
+        print("3. View Tasks by Due Date")
+        print("4. View Tasks by Priority")
+        print("5. Mark Task as Completed")
+        print("6. Delete a Task")
+        print("7. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == '1':
+            title = input("Enter title: ")
+            description = input("Enter description: ")
+            due_date = input("Enter due date (YYYY-MM-DD): ")
+            priority = input("Enter priority (High/Medium/Low): ")
+            task_manager.add_task(title, description, due_date, priority)
+        elif choice == '2':
+            task_manager.view_tasks()
+        elif choice == '3':
+            due_date = input("Enter due date (YYYY-MM-DD): ")
+            task_manager.view_tasks(filter_by=("due_date", due_date))
+        elif choice == '4':
+            priority = input("Enter priority (High/Medium/Low): ")
+            task_manager.view_tasks(filter_by=("priority", priority))
+        elif choice == '5':
+            title = input("Enter the title of the task to mark as completed: ")
+            task_manager.mark_task_completed(title)
+        elif choice == '6':
+            title = input("Enter the title of the task to delete: ")
+            task_manager.delete_task(title)
+        elif choice == '7':
+            print("Exiting Task Manager. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
