@@ -1,0 +1,50 @@
+#creating  a data frame
+import pandas as pd
+
+# Create a DataFrame
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'City': ['New York', 'Los Angeles', 'Chicago']}
+df = pd.DataFrame(data)
+print("DataFrame:\n", df)
+
+#reading a csv file
+import pandas as pd
+
+# Read a CSV file into a DataFrame
+df = pd.read_csv('example.csv')
+print("CSV Data:\n", df.head())
+#dataframe opertion
+import pandas as pd
+
+# Create a DataFrame
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+df = pd.DataFrame(data)
+
+# Calculate mean age
+mean_age = df['Age'].mean()
+print("Mean Age:", mean_age)
+
+#filtering data
+import pandas as pd
+
+# Create a DataFrame
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+df = pd.DataFrame(data)
+
+# Calculate mean age
+mean_age = df['Age'].mean()
+print("Mean Age:", mean_age)
+#grouping data
+import pandas as pd
+
+# Create a DataFrame
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'Alice'],
+        'Score': [90, 80, 85, 88]}
+df = pd.DataFrame(data)
+
+# Group by 'Name' and calculate the mean score
+grouped_df = df.groupby('Name').mean()
+print("Grouped DataFrame:\n", grouped_df)

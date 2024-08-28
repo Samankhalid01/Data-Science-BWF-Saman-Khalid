@@ -1,0 +1,65 @@
+#basic line plot
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a line plot
+plt.plot(x, y)
+plt.title('Sine Wave')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+#scatter plot
+import matplotlib.pyplot as plt
+
+# Create data
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+
+# Create a scatter plot
+plt.scatter(x, y)
+plt.title('Scatter Plot')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+#histogram
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+data = np.random.randn(1000)
+
+# Create a histogram
+plt.hist(data, bins=30)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+
+#barchart
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+data = np.random.randn(1000)
+
+# Create a histogram
+plt.hist(data, bins=30)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+#piechart
+import matplotlib.pyplot as plt
+
+# Create data
+sizes = [25, 35, 15, 25]
+labels = ['A', 'B', 'C', 'D']
+
+# Create a pie chart
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.title('Pie Chart')
+plt.show()
