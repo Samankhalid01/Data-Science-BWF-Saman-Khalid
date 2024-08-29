@@ -1,0 +1,128 @@
+#basic line plot
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a line plot
+plt.plot(x, y, label='Sine Wave', color='blue')
+plt.title('Basic Line Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.legend()
+plt.grid(True)
+plt.show()
+# mutiple line plots
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create multiple line plots
+plt.plot(x, y1, label='Sine Wave', color='blue')
+plt.plot(x, y2, label='Cosine Wave', color='red')
+plt.title('Multiple Line Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.legend()
+plt.grid(True)
+plt.show()
+#scatter plotimport matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.random.rand(100)
+y = np.random.rand(100)
+
+# Create a scatter plot
+plt.scatter(x, y, color='green')
+plt.title('Scatter Plot')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.show()
+#histogram
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+data = np.random.randn(1000)
+
+# Create a histogram
+plt.hist(data, bins=30, color='purple', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+#barchart
+import matplotlib.pyplot as plt
+
+# Create data
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [3, 7, 8, 5, 2]
+
+# Create a bar chart
+plt.bar(categories, values, color='orange')
+plt.title('Bar Chart')
+plt.xlabel('Category')
+plt.ylabel('Values')
+plt.show()
+#piechart
+import matplotlib.pyplot as plt
+
+# Create data
+labels = ['A', 'B', 'C', 'D']
+sizes = [15, 30, 45, 10]
+colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+
+# Create a pie chart
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+plt.title('Pie Chart')
+plt.show()
+#boxplot
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+data = np.random.randn(100)
+
+# Create a box plot
+plt.boxplot(data)
+plt.title('Box Plot')
+plt.xlabel('Data')
+plt.ylabel('Values')
+plt.show()
+#subplot
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create subplots
+fig, axs = plt.subplots(2, 1, figsize=(8, 8))
+
+# First subplot
+axs[0].plot(x, y1, label='Sine Wave', color='blue')
+axs[0].set_title('Sine Wave')
+axs[0].set_xlabel('X-axis')
+axs[0].set_ylabel('Y-axis')
+axs[0].legend()
+axs[0].grid(True)
+
+# Second subplot
+axs[1].plot(x, y2, label='Cosine Wave', color='red')
+axs[1].set_title('Cosine Wave')
+axs[1].set_xlabel('X-axis')
+axs[1].set_ylabel('Y-axis')
+axs[1].legend()
+axs[1].grid(True)
+
+plt.tight_layout()
+plt.show()
