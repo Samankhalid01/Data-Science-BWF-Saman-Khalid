@@ -1,0 +1,96 @@
+#loading data
+import pandas as pd
+
+# Load data from a CSV file
+data = pd.read_csv('data.csv')
+
+# Display the first few rows
+print(data.head())
+#handling missiing data
+import pandas as pd
+
+# Load data
+data = pd.read_csv('data.csv')
+
+# Display missing values
+print(data.isnull().sum())
+
+# Drop rows with missing values
+data_cleaned = data.dropna()
+
+# Fill missing values with a specific value (e.g., mean)
+data_filled = data.fillna(data.mean())
+
+# Display the cleaned data
+print(data_cleaned.head())
+#data tranformation
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+# Load data
+data = pd.read_csv('data.csv')
+
+# Select numeric columns
+numeric_columns = ['column1', 'column2', 'column3']
+
+# Initialize scaler
+scaler = MinMaxScaler()
+
+# Fit and transform the data
+data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
+
+# Display the transformed data
+print(data.head())
+
+#encoding categorical variables
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+# Load data
+data = pd.read_csv('data.csv')
+
+# Select numeric columns
+numeric_columns = ['column1', 'column2', 'column3']
+
+# Initialize scaler
+scaler = MinMaxScaler()
+
+# Fit and transform the data
+data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
+
+# Display the transformed data
+print(data.head())
+#splitting data into trining and test sets
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+# Load data
+data = pd.read_csv('data.csv')
+
+# Define features and target variable
+X = data.drop('target_column', axis=1)
+y = data['target_column']
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Display the shape of the split data
+print("Training data shape:", X_train.shape)
+print("Test data shape:", X_test.shape)
+#feature selection
+import pandas as pd
+from sklearn.feature_selection import SelectKBest, f_classif
+
+# Load data
+data = pd.read_csv('data.csv')
+
+# Define features and target variable
+X = data.drop('target_column', axis=1)
+y = data['target_column']
+
+# Apply SelectKBest to select the top 3 features
+selector = SelectKBest(score_func=f_classif, k=3)
+X_new = selector.fit_transform(X, y)
+
+# Display the selected features
+print(X_new[:5])
